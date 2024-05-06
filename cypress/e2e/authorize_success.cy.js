@@ -6,7 +6,6 @@ describe('Automize tests', () => {
 
           cy.log('Ввод существующего логина');
           cy.get('.form-input--text').type(data.name);
-          cy.wait(2000);
 
           cy.log('Ввод существующего пароля');
           cy.get('.form-input--password').type(data.password);
