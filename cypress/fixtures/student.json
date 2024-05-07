@@ -1,0 +1,10 @@
+{
+  "main_url": "https://dev.profteam.su/login",
+  "name": "ducciotest",
+  "password": "Test123",
+  "name_vacansy": "Работник",
+  "requires_vacansy": "Требования работника",
+  "duty_vacansy": "Обязанности работника",
+  "name_employer": "testerEmployer",
+  "password_employer": "Password1"
+}

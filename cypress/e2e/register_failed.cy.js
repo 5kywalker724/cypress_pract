@@ -20,6 +20,27 @@ describe('Automize tests', () => {
           cy.get('.form-error > span').should('exist');
       });
   });
+  it('Провальный тест регистрации c неуникальным логином', () => {
+    cy.fixture('register').then(data => {
+        cy.log('Переход на страницу регистрации');
+        cy.visit(data.main_url);
+
+        cy.log('Ввод некорректного логина');
+        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login_unique);
+
+        cy.log('Ввод корректной почты');
+        cy.get('.form-input--email').type(data.email);
+
+        cy.log('Ввод корректного пароля');
+        cy.get(':nth-child(3) > .form-control--medium .form-input--password').type(data.password);
+
+        cy.log('Ввод корректного пароля для подтверждения');
+        cy.get(':nth-child(4) > .form-control--medium .form-input--password').type(data.password_confirm);
+
+        cy.log("Проверка что пользователь не зарегистрировался и логин неуникальный");
+        cy.get('.form-error > span').should('exist');
+    });
+  });
   it('Провальный тест регистрации c некорректной почтой', () => {
     cy.fixture('register').then(data => {
         cy.log('Переход на страницу регистрации');
@@ -38,6 +59,27 @@ describe('Automize tests', () => {
         cy.get(':nth-child(4) > .form-control--medium .form-input--password').type(data.password_confirm);
 
         cy.log("Проверка что пользователь не зарегистрировался и почта некорректная");
+        cy.get('.form-error > span').should('exist');
+    });
+  });
+  it('Провальный тест регистрации c неуникальной почтой', () => {
+    cy.fixture('register').then(data => {
+        cy.log('Переход на страницу регистрации');
+        cy.visit(data.main_url);
+
+        cy.log('Ввод корректного логина');
+        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login);
+
+        cy.log('Ввод неуникальной почты');
+        cy.get('.form-input--email').type(data.email_unique);
+
+        cy.log('Ввод корректного пароля');
+        cy.get(':nth-child(3) > .form-control--medium .form-input--password').type(data.password);
+
+        cy.log('Ввод корректного пароля для подтверждения');
+        cy.get(':nth-child(4) > .form-control--medium .form-input--password').type(data.password_confirm);
+
+        cy.log("Проверка что пользователь не зарегистрировался и почта неуникальная");
         cy.get('.form-error > span').should('exist');
     });
   });

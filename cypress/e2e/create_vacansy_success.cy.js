@@ -28,6 +28,10 @@ describe('Создание вакансии', () => {
           cy.log('Клик по кнопке "Обновить вакансию"');
           cy.get('.vacancy-add-form-wrapper > .form > .form__buttons > .buttons > .button').click({force: true});
 
+          cy.wait(1500);
+
+          cy.log('Клик по кнопке "Опубликовать"');
+          cy.get(':nth-child(1) > .vacancy-item__info-wrapper > .vacancy-item__footer-wrapper > .vacancy-footer > .vacancy-footer__button-wrapper > .button__background-color-green').click();
 
           cy.log('Проверка созданной вакансии');
           cy.get(':nth-child(1) > .vacancy-item__info-wrapper > .vacancy-item__footer-wrapper > .vacancy-footer > .vacancy-footer__button-wrapper > .button__background-color-blue')

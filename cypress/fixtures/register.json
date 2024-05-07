@@ -15,5 +15,7 @@
   "name_incorrect": "Oleg",
   "patronymic_incorrect": "Igorevich",
   "registered_login": "ducciotest",
-  "registered_password": "Test123"
+  "registered_password": "Test123",
+  "login_unique": "dduccio",
+  "email_unique": "ducciofrederic5174@gmail.com"
 }
