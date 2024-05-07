@@ -30,7 +30,7 @@ describe('Просмотр вакансий', () => {
         cy.log('Выбор фильтров для поиска вакансий');
         cy.get(':nth-child(1) > .radio-component__input').click();
         cy.get(':nth-child(3) > :nth-child(2) > .form-select__selected').click();
-        cy.get('.form-select__items > :nth-child(2)').click();
+        cy.get('.form-select__items > :nth-child(3)').click();
         cy.get(':nth-child(4) > :nth-child(2) > .form-select__selected').click();
         cy.get('.form-select__items > :nth-child(2)').click();
 

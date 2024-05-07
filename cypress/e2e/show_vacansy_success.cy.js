@@ -1,5 +1,5 @@
 describe('Просмотр вакансий', () => {
-  it('Успешное просмотр вакансии c поиском', () => {
+  it('Успешный просмотр вакансии c поиском', () => {
       cy.fixture('employer').then(data => {
           cy.log('Переход на главную страницу');
           cy.visit('https://dev.profteam.su/');
@@ -19,7 +19,7 @@ describe('Просмотр вакансий', () => {
           cy.get('.vacancy-list__failed-loading').should('not.exist')
       });
   });
-  it('Успешное просмотр вакансии c фильтрами', () => {
+  it('Успешный просмотр вакансии c фильтрами', () => {
     cy.fixture('employer').then(data => {
         cy.log('Переход на главную страницу');
         cy.visit('https://dev.profteam.su/');

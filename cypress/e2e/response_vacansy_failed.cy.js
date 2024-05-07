@@ -1,4 +1,4 @@
-describe('Создание вакансии', () => {
+describe('Отклик на вакансию', () => {
   it('Провальный отклик на вакансию', () => {
       cy.fixture('student').then(data => {
           cy.log('Переход на страницу авторизации');
@@ -46,7 +46,8 @@ describe('Создание вакансии', () => {
 
           cy.log('Клик на кнопку "Добавить в архив"');
           cy.get(':nth-child(1) > .vacancy-item__info-wrapper > .vacancy-header > .vacancy-header__name').should('exist', data.name_vacansy);
-          cy.get('.vacancy-item__footer-wrapper > .vacancy-footer > .vacancy-footer__button-wrapper > .button__background-color-red').click();
+          cy.get(':nth-child(1) > .vacancy-item__info-wrapper > .vacancy-item__footer-wrapper > .vacancy-footer > .vacancy-footer__button-wrapper > .button__background-color-red')
+          .click();
           cy.get('.desktop-modal__button-wrapper > .button__background-color-red').click();
 
           cy.log('Выход из аккаунта для дальнейшего входа cтудента');

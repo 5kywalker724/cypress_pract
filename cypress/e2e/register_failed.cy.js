@@ -1,4 +1,4 @@
-describe('Automize tests', () => {
+describe('Провальная регистрация и провальный выбор роли студента', () => {
   it('Провальный тест регистрации c некорректным логином', () => {
       cy.fixture('register').then(data => {
           cy.log('Переход на страницу регистрации');
@@ -29,13 +29,16 @@ describe('Automize tests', () => {
         cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login_unique);
 
         cy.log('Ввод корректной почты');
-        cy.get('.form-input--email').type(data.email);
+        cy.get('.form-input--email').type(data.email_not_unique);
 
         cy.log('Ввод корректного пароля');
         cy.get(':nth-child(3) > .form-control--medium .form-input--password').type(data.password);
 
         cy.log('Ввод корректного пароля для подтверждения');
         cy.get(':nth-child(4) > .form-control--medium .form-input--password').type(data.password_confirm);
+
+        cy.log('Клик по кнопке "Войти"');
+        cy.get(':nth-child(4) > .button').click();
 
         cy.log("Проверка что пользователь не зарегистрировался и логин неуникальный");
         cy.get('.form-error > span').should('exist');
@@ -47,7 +50,7 @@ describe('Automize tests', () => {
         cy.visit(data.main_url);
 
         cy.log('Ввод корректного логина');
-        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login);
+        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login_not_unique);
 
         cy.log('Ввод некорректной почты');
         cy.get('.form-input--email').type(data.email_incorrect);
@@ -68,7 +71,7 @@ describe('Automize tests', () => {
         cy.visit(data.main_url);
 
         cy.log('Ввод корректного логина');
-        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login);
+        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login_not_unique);
 
         cy.log('Ввод неуникальной почты');
         cy.get('.form-input--email').type(data.email_unique);
@@ -78,6 +81,9 @@ describe('Automize tests', () => {
 
         cy.log('Ввод корректного пароля для подтверждения');
         cy.get(':nth-child(4) > .form-control--medium .form-input--password').type(data.password_confirm);
+
+        cy.log('Клик по кнопке "Войти"');
+        cy.get(':nth-child(4) > .button').click();
 
         cy.log("Проверка что пользователь не зарегистрировался и почта неуникальная");
         cy.get('.form-error > span').should('exist');
@@ -89,10 +95,10 @@ describe('Automize tests', () => {
         cy.visit(data.main_url);
 
         cy.log('Ввод корректного логина');
-        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login);
+        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login_not_unique);
 
         cy.log('Ввод корректной почты');
-        cy.get('.form-input--email').type(data.email);
+        cy.get('.form-input--email').type(data.email_not_unique);
 
         cy.log('Ввод некорректного пароля');
         cy.get(':nth-child(3) > .form-control--medium .form-input--password').type(data.password_incorrect);
@@ -110,10 +116,10 @@ describe('Automize tests', () => {
         cy.visit(data.main_url);
 
         cy.log('Ввод корректного логина');
-        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login);
+        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login_not_unique);
 
         cy.log('Ввод корректной почты');
-        cy.get('.form-input--email').type(data.email);
+        cy.get('.form-input--email').type(data.email_not_unique);
 
         cy.log('Ввод корректного пароля');
         cy.get(':nth-child(3) > .form-control--medium .form-input--password').type(data.password);
@@ -131,10 +137,10 @@ describe('Automize tests', () => {
         cy.visit(data.main_url);
 
         cy.log('Ввод корректного логина');
-        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login);
+        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login_not_unique);
 
         cy.log('Ввод корректной почты');
-        cy.get('.form-input--email').type(data.email);
+        cy.get('.form-input--email').type(data.email_not_unique);
 
         cy.log('Ввод корректного пароля');
         cy.get(':nth-child(3) > .form-control--medium .form-input--password').type(data.password);
@@ -145,7 +151,7 @@ describe('Automize tests', () => {
         cy.log('Клик по кнопке "Войти"');
         cy.get(':nth-child(4) > .button').click();
 
-        cy.log('Ввод корректной фамилии');
+        cy.log('Ввод некорректной фамилии');
         cy.get('[style=""] > :nth-child(1) > .form-control--medium > .form-input--text').type(data.surname_incorrect);
 
         cy.log('Ввод корректного имени');
@@ -164,10 +170,10 @@ describe('Automize tests', () => {
         cy.visit(data.main_url);
 
         cy.log('Ввод корректного логина');
-        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login);
+        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login_not_unique);
 
         cy.log('Ввод корректной почты');
-        cy.get('.form-input--email').type(data.email);
+        cy.get('.form-input--email').type(data.email_not_unique);
 
         cy.log('Ввод корректного пароля');
         cy.get(':nth-child(3) > .form-control--medium .form-input--password').type(data.password);
@@ -181,7 +187,7 @@ describe('Automize tests', () => {
         cy.log('Ввод корректной фамилии');
         cy.get('[style=""] > :nth-child(1) > .form-control--medium > .form-input--text').type(data.surname);
 
-        cy.log('Ввод корректного имени');
+        cy.log('Ввод некорректного имени');
         cy.get(':nth-child(2) > .form-control--medium > .form-input--text').type(data.name_incorrect);
 
         cy.log('Ввод корректного отчества');
@@ -197,10 +203,10 @@ describe('Automize tests', () => {
         cy.visit(data.main_url);
 
         cy.log('Ввод корректного логина');
-        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login);
+        cy.get(':nth-child(1) > :nth-child(1) >.form-control--medium > .form-input--text').type(data.login_not_unique);
 
         cy.log('Ввод корректной почты');
-        cy.get('.form-input--email').type(data.email);
+        cy.get('.form-input--email').type(data.email_not_unique);
 
         cy.log('Ввод корректного пароля');
         cy.get(':nth-child(3) > .form-control--medium .form-input--password').type(data.password);
@@ -217,7 +223,7 @@ describe('Automize tests', () => {
         cy.log('Ввод корректного имени');
         cy.get(':nth-child(2) > .form-control--medium > .form-input--text').type(data.name);
 
-        cy.log('Ввод корректного отчества');
+        cy.log('Ввод некорректного отчества');
         cy.get(':nth-child(3) > .form-control--medium > .form-input--text').type(data.patronymic_incorrect);
 
         cy.log("Проверка что пользователь не зарегистрировался и отчество некорректное");

@@ -17,5 +17,7 @@
   "registered_login": "ducciotest",
   "registered_password": "Test123",
   "login_unique": "ducciotest",
-  "email_unique": "ducciofrederic51@gmail.com"
+  "email_unique": "ducciofrederic51@gmail.com",
+  "login_not_unique": "ddducciofreedd",
+  "email_not_unique": "ddducciofreedd@gmail.com"
 }
