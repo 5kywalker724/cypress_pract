@@ -37,7 +37,7 @@ describe('Automize tests', () => {
   });
   it('Успешный тест выбора роли "Студент"', () => {
     cy.fixture('register').then(data => {
-        cy.log('Переход на страницу регистрации');
+        cy.log('Переход на страницу авторизации');
         cy.visit('https://dev.profteam.su/login');
 
         cy.log('Ввод существующего логина');

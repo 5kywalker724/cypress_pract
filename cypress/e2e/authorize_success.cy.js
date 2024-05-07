@@ -1,6 +1,6 @@
 describe('Automize tests', () => {
   it('Успешный тест авторизации', () => {
-      cy.fixture('student').then(data => {
+      cy.fixture('authorize').then(data => {
           cy.log('Переход на страницу авторизации');
           cy.visit(data.main_url);
 
