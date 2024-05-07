@@ -1,5 +1,5 @@
 describe('Создание вакансии', () => {
-  it('Успешный отклик на вакансию', () => {
+  it('Провальный отклик на вакансию', () => {
       cy.fixture('student').then(data => {
           cy.log('Переход на страницу авторизации');
           cy.visit(data.main_url);
@@ -66,7 +66,7 @@ describe('Создание вакансии', () => {
           cy.log('Клик на вкладку "Отклики"');
           cy.get(':nth-child(4) > .menu-item__item-name').click();
 
-          cy.log('Проверка соответствия названия отклика тому, на который пользователь откликнулся');
+          cy.log('Проверка провального отклика на вакансию, что такого отклика нету');
           cy.get(':nth-child(1) > .responses-list-item__content-company > .responses-list-item__company > .responses-list-item__title').should('not.exist', data.name_vacansy);
       });
   });

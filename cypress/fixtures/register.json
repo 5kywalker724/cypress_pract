@@ -1,7 +1,7 @@
 {
   "main_url": "https://dev.profteam.su/registration",
-  "login": "ducciofreed",
-  "email": "ducciofreeed@gmail.com",
+  "login": "ducciofreedd",
+  "email": "ducciofreeedd@gmail.com",
   "password": "QWEasd123",
   "password_confirm": "QWEasd123",
   "surname": "Кузьмин",
@@ -16,6 +16,6 @@
   "patronymic_incorrect": "Igorevich",
   "registered_login": "ducciotest",
   "registered_password": "Test123",
-  "login_unique": "dduccio",
-  "email_unique": "ducciofrederic5174@gmail.com"
+  "login_unique": "ducciotest",
+  "email_unique": "ducciofrederic51@gmail.com"
 }
